@@ -1,0 +1,11 @@
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\bin\Debug\Client.exe.config
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\bin\Debug\Client.exe
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\bin\Debug\Client.pdb
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.csprojAssemblyReference.cache
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.Form1.resources
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.Properties.Resources.resources
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.csproj.GenerateResource.cache
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.exe
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.pdb
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\Client\obj\Debug\Client.CalculatorPage.resources

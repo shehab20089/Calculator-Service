@@ -1,0 +1,12 @@
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\bin\Debug\MovieContracts.dll
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\bin\Debug\MovieContracts.pdb
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\obj\Debug\CaclulatorServContracts.csproj.CoreCompileInputs.cache
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\obj\Debug\MovieContracts.dll
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\obj\Debug\MovieContracts.pdb
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\bin\Debug\MovieContracts.dll.config
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\bin\Debug\EntityFramework.dll
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\bin\Debug\EntityFramework.SqlServer.dll
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\bin\Debug\EntityFramework.xml
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\bin\Debug\EntityFramework.SqlServer.xml
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\obj\Debug\CaclulatorServContracts.csproj.CopyComplete
+E:\ITI\SD 39 WCF\Tasks\CalculatorService\MovieContracts\obj\Debug\CaclulatorServContracts.csprojAssemblyReference.cache

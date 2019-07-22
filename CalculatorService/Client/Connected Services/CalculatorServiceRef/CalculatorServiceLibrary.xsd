@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CalculatorServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CalculatorServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="addAuth" type="xs:boolean" />
+      <xs:element minOccurs="0" name="divAuth" type="xs:boolean" />
+      <xs:element minOccurs="0" name="multiAuth" type="xs:boolean" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subAuth" type="xs:boolean" />
+      <xs:element minOccurs="0" name="userID" type="xs:int" />
+      <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+</xs:schema>

@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CalculatorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_ICalculatorService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetNamedPipeBinding_ICalculatorService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="CustomBinding_ICalculatorService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CalculatorServiceLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICalculatorService_CheckAuthentications_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAuthentications" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_CheckAuthentications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAuthenticationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_addUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:addUser" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_addUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_ADD_InputMessage">
+    <wsdl:part name="parameters" element="tns:ADD" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_ADD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ADDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_Subtract_InputMessage">
+    <wsdl:part name="parameters" element="tns:Subtract" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_Subtract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubtractResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_Divided_InputMessage">
+    <wsdl:part name="parameters" element="tns:Divided" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_Divided_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DividedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_Multiplay_InputMessage">
+    <wsdl:part name="parameters" element="tns:Multiplay" />
+  </wsdl:message>
+  <wsdl:message name="ICalculatorService_Multiplay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MultiplayResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICalculatorService">
+    <wsdl:operation name="CheckAuthentications">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/CheckAuthentications" message="tns:ICalculatorService_CheckAuthentications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/CheckAuthenticationsResponse" message="tns:ICalculatorService_CheckAuthentications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/addUser" message="tns:ICalculatorService_addUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/addUserResponse" message="tns:ICalculatorService_addUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/ADD" message="tns:ICalculatorService_ADD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/ADDResponse" message="tns:ICalculatorService_ADD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/Subtract" message="tns:ICalculatorService_Subtract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/SubtractResponse" message="tns:ICalculatorService_Subtract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Divided">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/Divided" message="tns:ICalculatorService_Divided_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/DividedResponse" message="tns:ICalculatorService_Divided_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Multiplay">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/Multiplay" message="tns:ICalculatorService_Multiplay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/MultiplayResponse" message="tns:ICalculatorService_Multiplay_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICalculatorService" type="tns:ICalculatorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckAuthentications">
+      <soap:operation soapAction="http://tempuri.org/ICalculatorService/CheckAuthentications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap:operation soapAction="http://tempuri.org/ICalculatorService/addUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <soap:operation soapAction="http://tempuri.org/ICalculatorService/ADD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap:operation soapAction="http://tempuri.org/ICalculatorService/Subtract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Divided">
+      <soap:operation soapAction="http://tempuri.org/ICalculatorService/Divided" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Multiplay">
+      <soap:operation soapAction="http://tempuri.org/ICalculatorService/Multiplay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_ICalculatorService" type="tns:ICalculatorService">
+    <wsp:PolicyReference URI="#NetTcpBinding_ICalculatorService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CheckAuthentications">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/CheckAuthentications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/addUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/ADD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Subtract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Divided">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Divided" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Multiplay">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Multiplay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetNamedPipeBinding_ICalculatorService" type="tns:ICalculatorService">
+    <wsp:PolicyReference URI="#NetNamedPipeBinding_ICalculatorService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/named-pipe" />
+    <wsdl:operation name="CheckAuthentications">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/CheckAuthentications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/addUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/ADD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Subtract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Divided">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Divided" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Multiplay">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Multiplay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomBinding_ICalculatorService" type="tns:ICalculatorService">
+    <wsp:PolicyReference URI="#CustomBinding_ICalculatorService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CheckAuthentications">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/CheckAuthentications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUser">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/addUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ADD">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/ADD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Subtract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Divided">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Divided" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Multiplay">
+      <soap12:operation soapAction="http://tempuri.org/ICalculatorService/Multiplay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculatorService">
+    <wsdl:port name="BasicHttpBinding_ICalculatorService" binding="tns:BasicHttpBinding_ICalculatorService">
+      <soap:address location="http://localhost:8888/user" />
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_ICalculatorService" binding="tns:NetTcpBinding_ICalculatorService">
+      <soap12:address location="net.tcp://localhost:8658/user" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8658/user</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetNamedPipeBinding_ICalculatorService" binding="tns:NetNamedPipeBinding_ICalculatorService">
+      <soap12:address location="net.pipe://localhost/user" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.pipe://localhost/user</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-MIS6F6K\Shehab</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="CustomBinding_ICalculatorService" binding="tns:CustomBinding_ICalculatorService">
+      <soap12:address location="net.tcp://localhost:9457/user" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9457/user</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
